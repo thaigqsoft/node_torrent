@@ -1,0 +1,8 @@
+node_modules
+logs
+handshakes
+config/keys.json
+package-lock.json
+.DS_Store
+*.log
+

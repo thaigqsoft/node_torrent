@@ -1,0 +1,32 @@
+{
+  "name": "node_torrent",
+  "version": "1.0.0",
+  "description": "Secure BitTorrent-based file transfer CLI with end-to-end encryption",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "keygen": "node scripts/keygen.js",
+    "start:tracker": "node src/tracker/index.js",
+    "start:sender": "node src/sender/index.js",
+    "start:receiver": "node src/receiver/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bittorrent-tracker": "^11.2.2",
+    "chalk": "^5.6.2",
+    "cli-progress": "^3.12.0",
+    "commander": "^14.0.2",
+    "fs-extra": "^11.3.2",
+    "libsodium-wrappers": "^0.7.15",
+    "ora": "^9.0.0",
+    "sodium-native": "^5.0.9",
+    "webtorrent": "^2.8.4",
+    "winston": "^3.18.3"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
