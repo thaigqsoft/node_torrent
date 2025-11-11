@@ -45,7 +45,7 @@ describe('Session crypto', () => {
     const payload = {
       magnetURI: 'magnet:?xt=urn:btih:dummy',
       infoHash: 'dummyhash',
-      tracker: 'http://localhost:9000/announce'
+      tracker: 'http://localhost:9510/announce'
     };
 
     const encrypted = await encryptHandshakePayload(shared.sharedKey, payload);

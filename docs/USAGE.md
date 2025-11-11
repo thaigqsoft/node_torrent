@@ -5,7 +5,6 @@
 ### 1. ความต้องการเบื้องต้น
 - Node.js 20+
 - pm2 ติดตั้งแล้ว (ตามเงื่อนไขผู้ใช้)
-- พอร์ตว่างสำหรับ tracker (ค่าปริยาย 9000)
 - เครื่องรับและเครื่องส่งต้องแลก public key กันก่อน (ช่องทางปลอดภัย เช่น Signal)
 
 ### 2. การติดตั้งแพ็กเกจ
@@ -29,7 +28,7 @@ npm run keygen -- --list
 
 ### 4. รัน Tracker แบบ private
 ```bash
-pm2 start src/tracker/index.js --name secure-tracker -- --port 9000
+pm2 start src/tracker/index.js --name secure-tracker -- --port 9510
 pm2 logs secure-tracker --lines 50 --nostream
 ```
 

@@ -6,7 +6,7 @@ const ROOT_DIR = path.join(__dirname, '..', '..');
 
 const DEFAULTS = {
   keyStore: path.join(ROOT_DIR, 'config', 'keys.json'),
-  tracker: 'http://localhost:9000/announce',
+  tracker: 'http://localhost:9510/announce',
   handshakeDir: path.join(ROOT_DIR, 'handshakes'),
   tempDir: path.join(os.tmpdir(), 'secure-torrent')
 };

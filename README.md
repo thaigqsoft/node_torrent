@@ -44,7 +44,7 @@ npm run keygen -- --list
 
 ## การรัน Tracker ส่วนตัว (กลาง)
 ```bash
-pm2 start src/tracker/index.js --name secure-tracker -- --port 9000
+pm2 start src/tracker/index.js --name secure-tracker -- --port 9510
 pm2 logs secure-tracker --lines 50 --nostream
 ```
 

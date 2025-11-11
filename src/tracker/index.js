@@ -6,7 +6,7 @@ const program = new Command();
 
 program
   .description('Private BitTorrent tracker for secure file transfers')
-  .option('-p, --port <number>', 'Port to listen on', (value) => parseInt(value, 10), 9000)
+  .option('-p, --port <number>', 'Port to listen on', (value) => parseInt(value, 10), 9510)
   .option('-H, --host <host>', 'Host to bind', '0.0.0.0')
   .option('-u, --udp', 'Enable UDP tracker', false)
   .option('-w, --websocket', 'Enable WebSocket tracker', false);
@@ -58,7 +58,7 @@ async function startTracker(cliOptions = {}) {
   process.once('SIGINT', shutdown);
   process.once('SIGTERM', shutdown);
 
-  server.listen(cliOptions.port || 9000, cliOptions.host || '0.0.0.0');
+  server.listen(cliOptions.port || 9510, cliOptions.host || '0.0.0.0');
   return server;
 }
 
