@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const { Command } = require('commander');
-const TrackerServer = require('bittorrent-tracker').Server;
 const logger = require('../common/logger');
 
 const program = new Command();
@@ -12,7 +11,13 @@ program
   .option('-u, --udp', 'Enable UDP tracker', false)
   .option('-w, --websocket', 'Enable WebSocket tracker', false);
 
-function startTracker(cliOptions = {}) {
+async function loadTrackerServer() {
+  const mod = await import('bittorrent-tracker/server');
+  return mod.default || mod.Server || mod;
+}
+
+async function startTracker(cliOptions = {}) {
+  const TrackerServer = await loadTrackerServer();
   const server = new TrackerServer({
     udp: !!cliOptions.udp,
     http: true,
@@ -60,7 +65,10 @@ function startTracker(cliOptions = {}) {
 if (require.main === module) {
   program.parse(process.argv);
   const options = program.opts();
-  startTracker(options);
+  startTracker(options).catch((error) => {
+    logger.error(`Failed to start tracker: ${error.message}`);
+    process.exit(1);
+  });
 }
 
 module.exports = {
